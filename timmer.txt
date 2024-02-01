@@ -1,0 +1,22 @@
+$(document).ready(function() {
+    // 設定目標日期和時間（YYYY-MM-DD HH:mm:ss）
+    var targetDateTime = "2024-02-01 12:30:00";
+
+    // 設定定時器，每秒檢查一次目前的日期和時間是否達到目標
+    var interval = setInterval(function() {
+        // 取得當前日期和時間
+        var currentDateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+        // 如果當前日期和時間等於目標日期和時間，觸發相應函式並清除定時器
+        if (currentDateTime === targetDateTime) {
+            yourFunction();  // 請替換成你想要觸發的函式
+            clearInterval(interval);
+        }
+    }, 1000);  // 每秒檢查一次
+
+    // 你的觸發函式
+    function yourFunction() {
+        console.log("Function triggered at " + targetDateTime);
+        // 在這裡執行你的相應操作
+    }
+});
